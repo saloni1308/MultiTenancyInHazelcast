@@ -1,0 +1,38 @@
+.DS_Store
+*.orig
+*.class
+*.jar
+*.bin
+*.bak
+*.db
+libs/
+*.exe
+/build/
+/target/
+target/
+.svn
+
+
+### IntelliJ ###
+# Ignore the folder where project settings are stored as IDE is not assumed
+/.idea/
+.idea/
+*.iml
+/out/
+*.ipr
+*.iws
+build-idea/
+
+# eclipse files
+.project
+.classpath
+.settings
+build-eclipse/
+
+# netbeans files
+nb-configuration.xml
+nbactions.xml
+
+.checkstyle
+.eclipse-pmd
+.tern-project
