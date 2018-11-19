@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.architectures.prod</groupId>
+	<artifactId>MongoDBHazelCastMultiTenant</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webXml>WebContent\WEB-INF\web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+
+    <!-- Version Properties -->
+    <logback.version>1.1.7</logback.version>
+		<javax.ws.rs.version>2.0.1</javax.ws.rs.version>
+		<guice.version>4.1.0</guice.version>
+		<jersey.version>2.24</jersey.version>
+		<javax.interceptor.version>1.2</javax.interceptor.version>
+		<jackson.version>2.8.6</jackson.version>
+		<junit.version>4.12</junit.version>
+		<assertj.version>3.5.2</assertj.version>
+		<mockito.version>2.10.0</mockito.version>
+		<javax.inject.version>1</javax.inject.version>
+		<servlet.version>3.1.0</servlet.version>
+		<org.reflections.version>0.9.10</org.reflections.version>
+		<morphia.version>1.2.1</morphia.version>
+		<mongo.driver.version>3.2.0</mongo.driver.version>
+		<hazelcast.version>3.5.1</hazelcast.version>
+		<xml.apis.version>1.4.01</xml.apis.version>
+		<uid-generator.version>3.1.2</uid-generator.version>
+		<h2.version>1.4.193</h2.version>
+		<guava.version>19.0</guava.version>
+	</properties>
+
+	<dependencies>
+		<!--JERSEY - For creating Rest Endpoints -->
+    <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.24</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.24</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-bean-validation</artifactId>
+			<version>2.24</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>2.24</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.glassfish.hk2</groupId>
+					<artifactId>osgi-resource-locator</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.24</version>
+		</dependency>
+
+    <!--Guice - For Dependency Injections -->
+    <dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-multibindings</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.hk2</groupId>
+			<artifactId>guice-bridge</artifactId>
+			<version>2.5.0-b27</version>
+		</dependency>
+
+    <!--Hazelcase - A Caching service and enables Muti Tenancy. -->
+    <dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-all</artifactId>
+			<version>3.5.1</version>
+		</dependency>
+
+    <!-- Mongodb - Java Driver -->
+    <dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+    <!-- Morphia - For Mongo Queries -->
+    <dependency>
+			<groupId>org.mongodb.morphia</groupId>
+			<artifactId>morphia</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+    <!-- JSON Parser -->
+    <dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+	</dependencies>
+
+</project>

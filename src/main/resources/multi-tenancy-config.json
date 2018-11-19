@@ -1,0 +1,10 @@
+[
+  {
+    "regionId": "region1",
+    "dbName": "region1"
+  },
+  {
+    "regionId": "region2",
+    "dbName": "region2"
+  }
+]
